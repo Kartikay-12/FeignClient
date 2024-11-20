@@ -11,6 +11,6 @@ import com.example.demo.EO.EmployeeEO;
 public interface IFeignClient {
 
 	@GetMapping("api/retrieve/{id}")
-	public ResponseEntity<EmployeeEO> getEmpByFeign(@PathVariable int id);
+	public ResponseEntity<EmployeeEO> getEmpByFeign(@PathVariable("id")int id);
 	
 }

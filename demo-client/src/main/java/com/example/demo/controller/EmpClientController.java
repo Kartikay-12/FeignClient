@@ -18,14 +18,14 @@ public class EmpClientController {
 	private IEmpClientService empService;
 
 	@GetMapping("/restController/retrieve/{id}")
-	public ResponseEntity<EmployeeEO> retrieveByRestController(@PathVariable int id) {
+	public ResponseEntity<EmployeeEO> retrieveByRestController(@PathVariable("id") int id) {
 		// logger.into("Received request to create Employee");
 		return empService.getEmpByRest(id);
 
 	}
 
 	@GetMapping("/feign/retrieve/{id}")
-	public ResponseEntity<EmployeeEO> retrieveByFeign(@PathVariable int id) {
+	public ResponseEntity<EmployeeEO> retrieveByFeign(@PathVariable("id") int id) {
 		return empService.getEmpByFeign(id);
 	}
 }

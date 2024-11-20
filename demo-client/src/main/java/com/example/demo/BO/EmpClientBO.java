@@ -14,6 +14,11 @@ public class EmpClientBO implements IEmpClientBO {
 	@Autowired
 	RestTemplate restTemplate;
 	IFeignClient feignClient;
+	
+	 public EmpClientBO(IFeignClient feignClient) {
+	        this.feignClient = feignClient;
+	    }
+	
 	@Override
 	public EmployeeEO findById(int id) {
 		String url = "http://localhost:8080/api/retrieve/"+id;
