@@ -44,6 +44,8 @@ dependencies {
 	
 	  implementation 'org.springframework.boot:spring-boot-starter-web'  // includes SLF4J and Logback
     implementation 'org.springframework.boot:spring-boot-starter-logging'
+    
+     implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
 }
 
 dependencyManagement {
@@ -54,4 +56,8 @@ dependencyManagement {
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+tasks.withType(JavaCompile) {
+    options.annotationProcessorPath = configurations.annotationProcessor
+    
 }
