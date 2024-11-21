@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.EO.EmployeeEO;
+import com.example.demo.Dto.EmployeeDto;
 import com.example.demo.service.IEmpClientService;
 
 @RestController
@@ -18,14 +18,14 @@ public class EmpClientController {
 	private IEmpClientService empService;
 
 	@GetMapping("/restController/retrieve/{id}")
-	public ResponseEntity<EmployeeEO> retrieveByRestController(@PathVariable("id") int id) {
+	public ResponseEntity<EmployeeDto> retrieveByRestController(@PathVariable("id") int id) {
 		// logger.into("Received request to create Employee");
 		return empService.getEmpByRest(id);
 
 	}
 
 	@GetMapping("/feign/retrieve/{id}")
-	public ResponseEntity<EmployeeEO> retrieveByFeign(@PathVariable("id") int id) {
+	public ResponseEntity<EmployeeDto> retrieveByFeign(@PathVariable("id") int id) {
 		return empService.getEmpByFeign(id);
 	}
 }
