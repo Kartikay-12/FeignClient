@@ -2,12 +2,12 @@ package com.example.demo.service;
 
 import org.springframework.http.ResponseEntity;
 
-import com.example.demo.EO.EmployeeEO;
+import com.example.demo.Dto.EmployeeDto;
 
 public interface IEmpClientService {
 
-	ResponseEntity<EmployeeEO> getEmpByRest(int id);
+	ResponseEntity<EmployeeDto> getEmpByRest(int id);
 
-	ResponseEntity<EmployeeEO> getEmpByFeign(int id);
+	ResponseEntity<EmployeeDto> getEmpByFeign(int id);
 
 }

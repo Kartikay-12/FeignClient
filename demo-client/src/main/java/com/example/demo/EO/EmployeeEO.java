@@ -1,22 +1,25 @@
 package com.example.demo.EO;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
-import lombok.Data;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
 
-@Entity
-@Data
-public class EmployeeEO {
+import com.example.demo.Dto.EmployeeDto;
+
+@Component
+public class EmployeeEO implements IEmployeeEO{
+
+	@Override
+	public EmployeeDto findById(EmployeeDto empDto) {
+		
+		return empDto;
+	}
+
+	@Override
+	public ResponseEntity<EmployeeDto> getEmpByFeign(ResponseEntity<EmployeeDto> empByFeign) {
+		
+		return empByFeign;
+	}
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-	private String name;
-	private String address;
-	private String department;
+	
 	
 }
