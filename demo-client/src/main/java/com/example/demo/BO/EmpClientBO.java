@@ -14,8 +14,7 @@ public class EmpClientBO implements IEmpClientBO {
 
 	@Autowired
 	RestTemplate restTemplate;
-	@Autowired
-	private IFeignClient feignClient;
+	
 	@Autowired
 	private IEmployeeEO empEO;
 	
@@ -25,22 +24,15 @@ public class EmpClientBO implements IEmpClientBO {
 //		this.feignClient=feignClient;
 //	}
 
-	public EmpClientBO(IFeignClient feignClient) {
-		this.feignClient = feignClient;
-	}
-
 	@Override
 	public EmployeeDto findById(int id) {
-		String url = "http://localhost:8080/api/retrieve/" + id;
-		EmployeeDto empDto = restTemplate.getForObject(url, EmployeeDto.class);
-		return empEO.findById(empDto);
-
+		return empEO.findById(id);
 	}
 
 	@Override
 	public ResponseEntity<EmployeeDto> getEmpByFeign(int id) {
 
-		return empEO.getEmpByFeign(feignClient.getEmpByFeign(id));
+		return empEO.getEmpByFeign(id);
 	}
 
 }
