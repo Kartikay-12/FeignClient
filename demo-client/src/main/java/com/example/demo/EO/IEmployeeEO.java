@@ -6,8 +6,10 @@ import com.example.demo.Dto.EmployeeDto;
 
 public interface IEmployeeEO {
 
-	EmployeeDto findById(EmployeeDto empDto);
+	EmployeeDto findById(int id);
 
-	ResponseEntity<EmployeeDto> getEmpByFeign(ResponseEntity<EmployeeDto> empByFeign);
+	ResponseEntity<EmployeeDto> getEmpByFeign(int id);
+
+	
 
 }
